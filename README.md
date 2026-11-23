@@ -8,6 +8,16 @@
 | **Back-end** | Node.js 20 + Express 5 (API REST) | [`backend/`](backend/) | Vercel (serverless) |
 | **Banco de dados** | PostgreSQL + Auth + Storage | [`database/`](database/) | Supabase |
 
+## 🌐 No ar
+
+| O quê | Endereço |
+|---|---|
+| **Site** | <https://entrelinhas-site-six.vercel.app> |
+| **API** | <https://entrelinhas-lovat.vercel.app> (teste: [`/api/saude`](https://entrelinhas-lovat.vercel.app/api/saude)) |
+
+Hospedagem na conta Vercel do SENAI (projetos `entrelinhas-site` = front e `entrelinhas` = API) e banco no projeto **Entrelinhas** do Supabase do SENAI.
+Variáveis de ambiente e URLs de login já configuradas — veja [docs/DEPLOY.md](docs/DEPLOY.md).
+
 ---
 
 ## 🗺️ Como o sistema funciona

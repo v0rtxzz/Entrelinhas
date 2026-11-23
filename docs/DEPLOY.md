@@ -1,5 +1,16 @@
 # 🚀 Passo a passo: GitHub → Supabase → Vercel
 
+> ✅ **Situação atual (já publicado)**
+>
+> | Peça | Onde | Detalhes |
+> |---|---|---|
+> | Front-end | Vercel (conta SENAI) → projeto `entrelinhas-site` | <https://entrelinhas-site-six.vercel.app> · Root Directory `frontend` |
+> | Back-end | Vercel (conta SENAI) → projeto `entrelinhas` | <https://entrelinhas-lovat.vercel.app> · Root Directory `backend` |
+> | Banco | Supabase (conta SENAI) → projeto `Entrelinhas` | Região `us-west-2` · Site URL e Redirect URLs apontando para o front |
+>
+> Variáveis já cadastradas na Vercel: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `FRONTEND_URL` (API) e `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_API_URL` (site).
+> O passo a passo abaixo serve para montar tudo do zero em outra conta.
+
 Siga na ordem. Leva uns 20–30 minutos na primeira vez.
 
 ---
