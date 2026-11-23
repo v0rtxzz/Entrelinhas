@@ -9,6 +9,12 @@
 > | Banco | Supabase (conta SENAI) → projeto `Entrelinhas` | Região `us-west-2` · Site URL e Redirect URLs apontando para o front |
 >
 > Variáveis já cadastradas na Vercel: `SUPABASE_URL`, `SUPABASE_ANON_KEY`, `FRONTEND_URL` (API) e `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_API_URL` (site).
+>
+> **Como o site é atualizado:** o repositório oficial é `v0rtxzz/Entrelinhas`. A cada push no `main`, o GitHub Actions
+> ([`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)) publica a API e o site na Vercel do SENAI.
+> Só precisa existir o secret `VERCEL_TOKEN` (token criado em vercel.com/account/tokens na conta do SENAI) em
+> **Settings → Secrets and variables → Actions**. Dá para rodar na mão em **Actions → Deploy na Vercel → Run workflow**.
+>
 > O passo a passo abaixo serve para montar tudo do zero em outra conta.
 
 Siga na ordem. Leva uns 20–30 minutos na primeira vez.

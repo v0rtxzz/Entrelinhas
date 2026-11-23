@@ -28,6 +28,13 @@ app.use(
 // Lê JSON do corpo das requisições (limite pequeno: só texto)
 app.use(express.json({ limit: '100kb' }));
 
+// Quem abrir o endereço da API no navegador é levado para o site.
+app.get('/', (_req, res) => {
+  const site = env.frontendUrls.find((url) => !url.includes('localhost'));
+  if (site) return res.redirect(302, site);
+  return res.json({ sistema: 'Entrelinhas', api: '/api', saude: '/api/saude' });
+});
+
 app.use('/api', rotas);
 
 app.use(rotaNaoEncontrada);

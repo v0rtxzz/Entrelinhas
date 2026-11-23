@@ -1,0 +1,56 @@
+# Publica o site e a API na Vercel (conta do SENAI) a cada push no main.
+# Precisa de UM secret no GitHub: VERCEL_TOKEN
+# (Settings → Secrets and variables → Actions → New repository secret).
+name: Deploy na Vercel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  VERCEL_ORG_ID: team_Gyyfs5OB3RrYspj734uQVAHH
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - nome: API (backend)
+            projeto: prj_SUVwvAFtbcph9OArKPg4PFh0gMT9
+          - nome: Site (frontend)
+            projeto: prj_m77r7UYY89jrEaUzihAoBViborNc
+    name: ${{ matrix.nome }}
+    env:
+      VERCEL_PROJECT_ID: ${{ matrix.projeto }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir o secret
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::Falta o secret VERCEL_TOKEN no repositório."
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # A pasta de cada projeto (backend/ ou frontend/) já está
+      # configurada na Vercel (Root Directory), por isso o deploy
+      # é feito a partir da raiz do repositório.
+      # O .git é removido porque o plano Hobby da Vercel bloqueia deploys
+      # cujo autor do commit não é membro da conta (TEAM_ACCESS_REQUIRED).
+      # Sem o .git, o deploy conta como feito pela própria conta do token.
+      - name: Publicar em produção
+        run: |
+          rm -rf .git .github
+          npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"
