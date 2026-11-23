@@ -1,0 +1,55 @@
+/* =====================================================================
+   DESIGN TOKENS — Paleta Avelã (RNF01)
+   Quer mudar uma cor no site inteiro? Mude AQUI.
+   ===================================================================== */
+:root {
+  /* ---- Marrons (avelã) ---- */
+  --marrom-escuro: #4a2e1c;
+  --marrom: #6b4a3a;
+  --avela: #8a5a33;
+  --caramelo: #c8894b;
+  --caramelo-claro: #e0b27a;
+
+  /* ---- Bege / creme ---- */
+  --creme: #fbf5ec;
+  --creme-forte: #fbf1e2;
+  --bege: #f1e4d0;
+  --bege-escuro: #e7d3b0;
+
+  /* ---- Verdes (plantas) ---- */
+  --verde: #5e7f4e;
+  --verde-escuro: #475f3a;
+  --verde-claro: #dfe8d6;
+
+  /* ---- Apoio ---- */
+  --vermelho: #b0533a;
+  --vermelho-claro: #f6dfd6;
+  --dourado: #e0b04b;
+  --texto: #3b2416;
+  --texto-suave: #7a6152;
+  --branco: #fffdf9;
+
+  /* ---- Uso semântico ---- */
+  --fundo: var(--creme);
+  --superficie: var(--branco);
+  --borda: #e6d6c0;
+  --primaria: var(--marrom-escuro);
+  --destaque: var(--caramelo);
+  --foco: #3d7bd9;
+  --cor-estrela: #e0a13b;
+  --cor-estrela-vazia: #eadfce;
+  --cor-estrela-borda: #c9882a;
+
+  /* ---- Tipografia ---- */
+  --fonte-titulo: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --fonte-texto: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* ---- Formas e espaços ---- */
+  --raio-p: 8px;
+  --raio: 14px;
+  --raio-g: 22px;
+  --sombra: 0 2px 6px rgba(74, 46, 28, 0.08), 0 8px 24px rgba(74, 46, 28, 0.06);
+  --sombra-forte: 0 12px 32px rgba(74, 46, 28, 0.18);
+  --largura-maxima: 1180px;
+  --transicao: 180ms ease;
+}

@@ -1,0 +1,219 @@
+/* =====================================================================
+   BASE — reset, textos, formulários e botões
+   ===================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fundo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fonte-titulo);
+  color: var(--marrom-escuro);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+h1 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
+h2 { font-size: clamp(1.3rem, 2.6vw, 1.65rem); }
+h3 { font-size: 1.15rem; }
+
+p { margin: 0 0 1em; }
+
+a {
+  color: var(--avela);
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover { color: var(--marrom-escuro); }
+
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.texto-suave { color: var(--texto-suave); }
+.texto-centro { text-align: center; }
+
+/* ---------- Formulários ---------- */
+input,
+select,
+textarea {
+  font: inherit;
+  color: var(--texto);
+  width: 100%;
+  padding: 0.65rem 0.85rem;
+  background: var(--branco);
+  border: 2px solid var(--borda);
+  border-radius: var(--raio-p);
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+input:hover,
+select:hover,
+textarea:hover { border-color: var(--bege-escuro); }
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--caramelo);
+  box-shadow: 0 0 0 4px rgba(200, 137, 75, 0.18);
+}
+input:disabled { background: var(--bege); color: var(--texto-suave); }
+textarea { resize: vertical; min-height: 90px; }
+
+.formulario { display: grid; gap: 1rem; }
+
+.campo { display: grid; gap: 0.3rem; align-content: start; }
+.campo label { font-weight: 700; font-size: 0.95rem; }
+.campo__obrigatorio { color: var(--vermelho); }
+.campo__dica { color: var(--texto-suave); font-size: 0.85rem; }
+.campo__mensagem-erro { color: var(--vermelho); font-weight: 700; font-size: 0.85rem; }
+.campo--erro input,
+.campo--erro select,
+.campo--erro textarea { border-color: var(--vermelho); }
+
+.campo-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.campo-inline select { width: auto; padding: 0.4rem 0.6rem; }
+
+.grade-2 { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+/* ---------- Botões ---------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.3rem;
+  font: inherit;
+  font-weight: 800;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform var(--transicao), background var(--transicao), box-shadow var(--transicao);
+  white-space: nowrap;
+}
+.botao:hover:not(:disabled) { transform: translateY(-1px); }
+.botao:disabled { opacity: 0.55; cursor: not-allowed; }
+.botao--p { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
+.botao--bloco { width: 100%; }
+
+.botao--primario { background: var(--marrom-escuro); color: var(--creme); }
+.botao--primario:hover:not(:disabled) { background: var(--marrom); color: var(--creme); box-shadow: var(--sombra); }
+
+.botao--caramelo { background: var(--caramelo); color: var(--marrom-escuro); }
+.botao--caramelo:hover:not(:disabled) { background: var(--caramelo-claro); color: var(--marrom-escuro); }
+
+.botao--verde { background: var(--verde); color: var(--creme); }
+.botao--verde:hover:not(:disabled) { background: var(--verde-escuro); color: var(--creme); }
+
+.botao--fantasma { background: transparent; color: var(--marrom-escuro); border-color: var(--bege-escuro); }
+.botao--fantasma:hover:not(:disabled) { background: var(--bege); color: var(--marrom-escuro); }
+
+.botao--fantasma-claro { background: transparent; color: var(--creme); border-color: rgba(251, 245, 236, 0.4); }
+.botao--fantasma-claro:hover:not(:disabled) { background: rgba(251, 245, 236, 0.12); }
+
+.botao--perigo { background: var(--vermelho); color: #fff; }
+.botao--perigo:hover:not(:disabled) { background: #943f29; }
+.botao--perigo-suave { background: var(--vermelho-claro); color: var(--vermelho); }
+
+.botao-link {
+  background: none;
+  border: none;
+  padding: 0.2rem 0;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--avela);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.botao-link--perigo { color: var(--vermelho); }
+
+/* ---------- Cartões, alertas e etiquetas ---------- */
+.cartao {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.25rem;
+  box-shadow: var(--sombra);
+}
+.cartao--convite { text-align: center; }
+.cartao--equipe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  border-style: dashed;
+  border-color: var(--caramelo);
+  background: var(--creme-forte);
+  box-shadow: none;
+}
+
+.alerta { padding: 0.8rem 1rem; border-radius: var(--raio-p); margin: 0; font-weight: 600; }
+.alerta--erro { background: var(--vermelho-claro); color: var(--vermelho); }
+.alerta--sucesso { background: var(--verde-claro); color: var(--verde-escuro); }
+
+.etiqueta {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  margin-left: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  border-radius: 999px;
+  background: var(--bege);
+  color: var(--marrom);
+  vertical-align: middle;
+}
+.etiqueta:first-child { margin-left: 0; }
+.etiqueta--verde { background: var(--verde-claro); color: var(--verde-escuro); }
+
+.titulo-secao { margin-top: 2.5rem; }
+.titulo-pequeno { font-size: 1.1rem; margin-top: 1.25rem; }
+
+.voltar { display: inline-block; margin: 1.25rem 0 0.5rem; text-decoration: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

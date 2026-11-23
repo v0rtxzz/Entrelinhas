@@ -1,0 +1,158 @@
+/* =====================================================================
+   PÁGINAS — acervo (hero), detalhe do livro, resenhas, auth, perfil
+   ===================================================================== */
+
+/* ---------- Hero da página inicial ---------- */
+.hero {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(94, 127, 78, 0.18), transparent 35%),
+    linear-gradient(180deg, var(--bege) 0%, var(--creme) 100%);
+  border-bottom: 1px solid var(--borda);
+}
+.hero__conteudo {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+.hero__saudacao { color: var(--verde-escuro); font-weight: 800; margin-bottom: 0.3rem; }
+.hero h1 em { color: var(--caramelo); }
+.hero__texto { max-width: 520px; font-size: 1.05rem; color: var(--marrom); }
+.hero__ilustracao { position: relative; display: flex; justify-content: center; }
+.hero__ilustracao .avela { position: relative; z-index: 1; }
+
+/* folhas de planta desenhadas em CSS */
+.hero__planta {
+  position: absolute;
+  bottom: 10px;
+  width: 70px;
+  height: 120px;
+  background:
+    radial-gradient(ellipse 30% 45% at 30% 40%, var(--verde) 98%, transparent 100%),
+    radial-gradient(ellipse 30% 45% at 70% 25%, var(--verde-escuro) 98%, transparent 100%),
+    radial-gradient(ellipse 28% 40% at 55% 65%, #7fa36b 98%, transparent 100%);
+}
+.hero__planta--1 { left: 8%; transform: rotate(-12deg); }
+.hero__planta--2 { right: 6%; transform: rotate(14deg) scaleX(-1); opacity: 0.85; }
+
+@media (max-width: 760px) {
+  .hero__conteudo { grid-template-columns: 1fr; text-align: center; padding-top: 1.5rem; }
+  .hero__texto { margin-inline: auto; }
+  .hero__ilustracao { order: -1; }
+  .hero__ilustracao .avela { width: 130px; height: 130px; }
+  .hero__planta { width: 50px; height: 86px; }
+}
+
+.resultado-contagem { margin: 0 0 0.75rem; font-weight: 700; }
+
+/* ---------- Detalhe do livro ---------- */
+.detalhe__ficha {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) 1fr;
+  gap: 2.5rem;
+  margin-top: 0.5rem;
+}
+.detalhe__capa { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 90px; align-self: start; }
+.detalhe__selos { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem; }
+.detalhe__selos .etiqueta { margin-left: 0; }
+.detalhe__titulo { margin-bottom: 0.15rem; }
+.detalhe__autor { font-size: 1.1rem; color: var(--texto-suave); }
+.detalhe__nota { display: flex; align-items: center; gap: 0.9rem; margin: 1rem 0; }
+.detalhe__nota small { display: block; color: var(--texto-suave); }
+.detalhe__media { font-family: var(--fonte-titulo); font-size: 2.6rem; font-weight: 700; color: var(--marrom-escuro); }
+.detalhe__minha-nota { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; font-weight: 800; }
+.detalhe__descricao { font-size: 1.1rem; font-style: italic; color: var(--marrom); }
+.detalhe__sinopse { white-space: pre-line; }
+.detalhe__dados {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--creme-forte);
+  border-radius: var(--raio);
+}
+.detalhe__dados dt { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; color: var(--texto-suave); }
+.detalhe__dados dd { margin: 0; font-weight: 700; }
+
+@media (max-width: 760px) {
+  .detalhe__ficha { grid-template-columns: 1fr; gap: 1.5rem; }
+  .detalhe__capa { position: static; max-width: 240px; margin: 0 auto; width: 100%; }
+}
+
+/* ---------- Resenhas ---------- */
+.secao-resenhas { margin-top: 3rem; }
+.secao-resenhas__topo { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; }
+.form-resenha { display: grid; gap: 0.75rem; margin: 1rem 0 1.5rem; }
+.form-resenha__nota { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; font-weight: 800; }
+.form-resenha__rodape { display: flex; justify-content: space-between; align-items: center; }
+.form-resenha__rodape small { color: var(--texto-suave); }
+
+.lista-resenhas { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 1rem; }
+.resenha {
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1rem 1.25rem;
+}
+.resenha--minha { border-color: var(--caramelo); background: #fffaf2; }
+.resenha__cabeca { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem; }
+.resenha__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; font-size: 0.85rem; color: var(--texto-suave); }
+.resenha__texto { white-space: pre-line; margin: 0.25rem 0 0; overflow-wrap: anywhere; }
+.resenha__acoes { display: flex; gap: 1rem; justify-content: flex-end; margin-top: 0.5rem; }
+.resenha__edicao { display: grid; gap: 0.5rem; }
+
+/* ---------- Telas de login/cadastro ---------- */
+.pagina-auth {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  background: radial-gradient(circle at 50% 0%, var(--bege) 0%, transparent 60%);
+}
+.cartao-auth {
+  width: 100%;
+  max-width: 440px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-g);
+  padding: 2rem;
+  box-shadow: var(--sombra-forte);
+  display: grid;
+  gap: 1.25rem;
+}
+.cartao-auth__topo { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.cartao-auth__topo h1 { margin: 0.5rem 0 0.25rem; }
+.cartao-auth__topo p { color: var(--texto-suave); margin: 0; }
+.cartao-auth__links { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; font-size: 0.95rem; }
+
+/* ---------- Perfil ---------- */
+.perfil__cabeca { display: flex; flex-wrap: wrap; align-items: center; gap: 1.25rem; margin-top: 2rem; }
+.perfil__cabeca h1 { margin-bottom: 0.1rem; }
+.perfil__cabeca p { margin-bottom: 0.4rem; }
+.perfil__form { max-width: 640px; }
+.favorito { display: flex; flex-direction: column; gap: 0.3rem; align-items: center; }
+
+.seletor-avatar { border: none; padding: 0; margin: 0; }
+.seletor-avatar legend { font-weight: 800; margin-bottom: 0.5rem; }
+.seletor-avatar__opcoes { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 0.6rem; }
+.opcao-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.6rem;
+  border: 2px solid var(--borda);
+  border-radius: var(--raio);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  background: var(--creme);
+  transition: border-color var(--transicao), transform var(--transicao);
+}
+.opcao-avatar:hover { transform: translateY(-2px); }
+.opcao-avatar input { position: absolute; opacity: 0; pointer-events: none; }
+.opcao-avatar:has(input:focus-visible) { outline: 3px solid var(--foco); outline-offset: 2px; }
+.opcao-avatar.selecionado { border-color: var(--caramelo); background: var(--creme-forte); box-shadow: 0 0 0 3px rgba(200, 137, 75, 0.25); }

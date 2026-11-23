@@ -1,0 +1,11 @@
+/* =====================================================================
+   ESTILOS DO ENTRELINHAS — arquivo que junta todos os outros.
+   Ordem importa: variáveis → base → layout → componentes → páginas.
+   ===================================================================== */
+@import './tokens.css';      /* cores, fontes, espaçamentos (RNF01) */
+@import './base.css';        /* reset, tipografia, formulários, botões */
+@import './layout.css';      /* cabeçalho, rodapé, container */
+@import './avela.css';       /* mascote, carregamento, estados vazios */
+@import './componentes.css'; /* cards, estrelas, selos, filtros, modal, toasts */
+@import './paginas.css';     /* acervo, detalhe, auth, perfil */
+@import './painel.css';      /* painéis da biblioteca e admin, tabelas */

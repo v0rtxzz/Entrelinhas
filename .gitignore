@@ -1,0 +1,19 @@
+# Dependências
+node_modules/
+
+# Variáveis de ambiente (NUNCA subir chaves!)
+.env
+.env.local
+.env.*.local
+
+# Builds
+dist/
+.vercel/
+
+# Sistema / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+npm-debug.log*
